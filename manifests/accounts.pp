@@ -21,4 +21,32 @@ file { "/etc/default/useradd":
       source => "puppet://${puppetserver}/modules/fisma/useradd",
       notify => Service ['auditd'],
 }
+file { "/etc/bashrc":
+      mode   => '0644',
+      owner  => 'root',
+      group  => 'root',
+      source => "puppet://${puppetserver}/modules/fisma/bashrc",
+}
+file { "/etc/profile":
+      mode   => '0644',
+      owner  => 'root',
+      group  => 'root',
+      source => "puppet://${puppetserver}/modules/fisma/profile",
+}
+file { "/etc/csh.cshrc":
+      mode   => '0644',
+      owner  => 'root',
+      group  => 'root',
+      source => "puppet://${puppetserver}/modules/fisma/csh.cshrc",
+}
+file { '/etc/pam.d/system-auth-ac':
+      mode   => '0644',
+      owner  => 'root',
+      group  => 'root',
+      source => "puppet://${puppetserver}/modules/fisma/system-auth",
+}
+file { '/etc/pam.d/system-auth':
+      ensure => link,
+      target => '/etc/pam.d/system-auth-ac',
+}
 }

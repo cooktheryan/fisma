@@ -116,8 +116,8 @@ X11Forwarding yes
 #UsePrivilegeSeparation yes
 PermitUserEnvironment no
 #Compression delayed
-ClientAliveInterval 1800
-ClientAliveCountMax 0
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
 #ShowPatchLevel no
 #UseDNS yes
 #PidFile /var/run/sshd.pid
@@ -127,8 +127,7 @@ ClientAliveCountMax 0
 Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
 
 # no default banner path
-#Banner /etc/motd 
-# Covered currently by MOTD
+Banner /etc/issue
 
 # override default of no subsystems
 Subsystem	sftp	/usr/libexec/openssh/sftp-server
