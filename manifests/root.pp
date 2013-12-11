@@ -11,4 +11,10 @@ class fisma::root {
     mode => '644',
     source => "puppet://${puppetserver}/modules/fisma/securetty",
 }
+  file { "/etc/init/control-alt-delete.conf":
+    owner => 'root',
+    group => 'root',
+    mode => '644',
+    source => "puppet://${puppetserver}/modules/fisma/control-alt-delete.conf",
+}
 }

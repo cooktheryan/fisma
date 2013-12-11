@@ -63,7 +63,7 @@ if ! shopt -q login_shell ; then # We're not a login shell
     # You could check uidgid reservation validity in
     # /usr/share/doc/setup-*/uidgid file
     if [ $UID -gt 199 ] && [ "`id -gn`" = "`id -un`" ]; then
-       umask 002
+       umask 077
     else
        umask 077
     fi

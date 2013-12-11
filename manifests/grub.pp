@@ -12,7 +12,7 @@ augeas {
     changes => [
       "ins password after timeout",
       "clear password/encrypted",
-      "set password \$PASSWORDSHAHASH",
+      "set password SOME PASSWORD",
     ],
     onlyif  => "match password size == 0";
 }

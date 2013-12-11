@@ -33,6 +33,12 @@ file { "/etc/profile":
       group  => 'root',
       source => "puppet://${puppetserver}/modules/fisma/profile",
 }
+file { "/etc/init.d/functions":
+      mode   => '0644',
+      owner  => 'root',
+      group  => 'root',
+      source => "puppet://${puppetserver}/modules/fisma/functions",
+}
 file { "/etc/csh.cshrc":
       mode   => '0644',
       owner  => 'root',
@@ -48,5 +54,11 @@ file { '/etc/pam.d/system-auth-ac':
 file { '/etc/pam.d/system-auth':
       ensure => link,
       target => '/etc/pam.d/system-auth-ac',
+}
+file { '/etc/pam.d/password-auth-ac':
+      mode   => '0644',
+      owner  => 'root',
+      group  => 'root',
+      source => "puppet://${puppetserver}/modules/fisma/password-auth",
 }
 }
